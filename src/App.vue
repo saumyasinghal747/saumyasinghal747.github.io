@@ -2,13 +2,17 @@
 <div class="h-screen fixed top-0 left-0  overflow-clip w-screen bg-gray-900">
 
   <div :style="`--tw-translate-y: ${-55-45*pinkBubble}%;--tw-translate-x: ${-40-60*pinkBubble}%;`" class="pink-bubble">
+
+    <div class="fixed " style="bottom:37%;right:15%">
+      <h1 class="text-8xl text-white font-bold tracking-wide">Hi! I'm Saumya!</h1>
+    </div>
   </div>
-  <div :style="`--tw-translate-x: ${20+80*greenBubble}%;--tw-translate-y:${-40-60*greenBubble}%;`" class=" green-bubble">
+  <div :style="`--tw-translate-x: ${20+48*greenBubble}%;--tw-translate-y:${-40-40*greenBubble}%;`" class=" green-bubble">
   </div>
   <div :style="`--tw-translate-x: -${22+78*blueBubble}%;--tw-translate-y:-${63+37*blueBubble}%;`" class="blue-bubble">
   </div>
 
-  <div class="indicator ">{{Math.round(scroll)}}</div>
+  <div class="indicator hidden">{{Math.round(scroll)}}</div>
 </div>
 </template>
 
@@ -23,17 +27,17 @@ export default {
   computed:{
     pinkBubble(){
       if (this.scroll <stall) return 0;
-      if (this.scroll > frameLength) return 1.1;
+      if (this.scroll > frameLength) return 1;
       return (this.scroll-stall)/(frameLength-stall)
     },
     greenBubble(){
       if (this.scroll <(frameLength+stall)) return 0;
-      if (this.scroll > (frameLength*2)) return 1.1;
+      if (this.scroll > (frameLength*2)) return 1;
       return (this.scroll-(frameLength+stall))/(frameLength-stall)
     },
     blueBubble(){
       if (this.scroll <(frameLength*2+stall*4)) return 0;
-      if (this.scroll > (frameLength*4)) return 1.1;
+      if (this.scroll > (frameLength*4)) return 1;
       return (this.scroll-(frameLength*2+stall*4))/(frameLength*2-stall*4)
     }
   },
